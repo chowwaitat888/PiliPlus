@@ -1,3 +1,4 @@
+import 'package:PiliPlus/http/api.dart';
 import 'package:PiliPlus/utils/storage_pref.dart';
 import 'package:dio/dio.dart';
 
@@ -20,7 +21,7 @@ abstract final class HkApi {
 
   static bool canFallback(RequestOptions options) {
     return isConfigured &&
-        (options.method == 'GET' || options.method == 'POST') &&
+        options.method == 'GET' &&
         options.extra[_allowFallbackKey] == true &&
         options.extra[_hasRetriedKey] != true &&
         options.baseUrl != baseUrl;
@@ -112,7 +113,30 @@ class HkApiRetryInterceptor extends Interceptor {
     }
 
     final data = response.data;
-    if (data is! Map || (data['code'] != -404 && data['code'] != -10403)) {
+    if (data is! Map) {
+      return handler.next(response);
+    }
+    // OGV can report a region restriction inside a successful envelope.
+    final result = data['data'];
+    final reason = result is Map ? result['not_playable_reason'] : null;
+    final code = data['code'] == 0 && reason is Map
+        ? reason['code']
+        : data['code'];
+    final plugins = result is Map ? result['plugins'] : null;
+    final areaLimited =
+        originalOptions.path == Api.ogvUrl &&
+        data['code'] == 0 &&
+        result is Map &&
+        result['video_info'] == null &&
+        plugins is List &&
+        plugins.any(
+          (plugin) =>
+              plugin is Map &&
+              plugin['name'] == 'AreaLimitPanel' &&
+              plugin['config'] is Map &&
+              plugin['config']['is_block'] == true,
+        );
+    if (code != -404 && code != -10403 && !areaLimited) {
       return handler.next(response);
     }
 

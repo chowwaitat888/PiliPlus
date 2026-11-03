@@ -36,6 +36,7 @@ enum SearchType implements EnumWithLabel {
   static const List<SearchType> actives = [
     .all,
     .media_bangumi,
+    .media_hk_bangumi,
     .media_ft,
     .live_room,
     .bili_user,

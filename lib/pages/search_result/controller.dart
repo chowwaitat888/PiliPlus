@@ -4,7 +4,9 @@ import 'package:get/get.dart';
 class SearchResultController extends GetxController {
   String keyword = Get.parameters['keyword'] ?? '';
 
-  RxList<int> count = List.filled(SearchType.actives.length, -1).obs;
+  final RxMap<SearchType, int> count = {
+    for (final type in SearchType.actives) type: -1,
+  }.obs;
 
   RxInt toTopIndex = (-1).obs;
 

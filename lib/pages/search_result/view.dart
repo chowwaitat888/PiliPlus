@@ -110,7 +110,7 @@ class _SearchResultPageState extends State<SearchResultPage>
                   .map(
                     (item) => Obx(
                       () {
-                        int count = _searchResultController.count[item.index];
+                        int count = _searchResultController.count[item] ?? -1;
                         return Tab(
                           text:
                               '${item.label}${count != -1 ? ' ${count > 99 ? '99+' : count}' : ''}',
