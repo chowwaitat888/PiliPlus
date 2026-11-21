@@ -6,6 +6,7 @@ import 'package:PiliPlus/common/widgets/button/icon_button.dart';
 import 'package:PiliPlus/common/widgets/dialog/report_member.dart';
 import 'package:PiliPlus/common/widgets/dynamic_sliver_app_bar/dynamic_sliver_app_bar.dart';
 import 'package:PiliPlus/common/widgets/gesture/tap_gesture_recognizer.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/widgets/loading_widget/loading_widget.dart';
 import 'package:PiliPlus/common/widgets/scroll_behavior.dart'
     show NoOverscrollIndicator;
@@ -130,6 +131,8 @@ class _MemberPageState extends State<MemberPage> {
               return [
                 SliverAppBar(
                   pinned: true,
+                  backgroundColor: Colors.transparent,
+                  flexibleSpace: const GlassAppBarBackground(),
                   actions: _actions(theme),
                   title: GestureDetector(
                     onTap: _userController.onReload,

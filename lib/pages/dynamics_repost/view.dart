@@ -4,6 +4,7 @@ import 'package:PiliPlus/common/widgets/animated_height.dart';
 import 'package:PiliPlus/common/widgets/draggable_sheet/dyn.dart';
 import 'package:PiliPlus/common/widgets/flutter/text_field/text_field.dart';
 import 'package:PiliPlus/common/widgets/image/network_img_layer.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/widgets/scroll_physics.dart'
     show platformClampingPhysics;
 import 'package:PiliPlus/http/dynamics.dart';
@@ -260,84 +261,89 @@ class _RepostPanelState extends CommonRichTextPubPageState<RepostPanel>
     // inputFormatters: [LengthLimitingTextInputFormatter(1000)],
   );
 
-  Widget _buildAppBar() => !_expanded
-      ? Row(
-          children: [
-            const SizedBox(width: 16),
-            Text(
-              widget.rid != null ? '分享至动态' : '转发动态',
-              style: const TextStyle(fontWeight: FontWeight.bold),
-            ),
-            const Spacer(),
-            TextButton(
-              onPressed: onPublishThrottle,
-              style: TextButton.styleFrom(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 10,
-                ),
-                visualDensity: VisualDensity.compact,
-              ),
-              child: Text(widget.rid != null ? '立即发布' : '立即转发'),
-            ),
-            const SizedBox(width: 16),
-          ],
-        )
-      : Container(
-          height: 66,
-          padding: const EdgeInsets.all(16),
-          child: Stack(
-            clipBehavior: Clip.none,
-            children: [
-              Align(
-                alignment: Alignment.centerLeft,
-                child: SizedBox(
-                  width: 34,
-                  height: 34,
-                  child: IconButton(
-                    tooltip: '返回',
-                    style: ButtonStyle(
-                      padding: const WidgetStatePropertyAll(EdgeInsets.zero),
-                      backgroundColor: WidgetStatePropertyAll(
-                        theme.colorScheme.secondaryContainer,
-                      ),
-                    ),
-                    onPressed: Get.back,
-                    icon: Icon(
-                      Icons.arrow_back_outlined,
-                      size: 18,
-                      color: theme.colorScheme.onSecondaryContainer,
-                    ),
-                  ),
-                ),
-              ),
-              Center(
-                child: Text(
+  Widget _buildAppBar() => Stack(
+    children: [
+      const Positioned.fill(child: GlassAppBarBackground()),
+      !_expanded
+          ? Row(
+              children: [
+                const SizedBox(width: 16),
+                Text(
                   widget.rid != null ? '分享至动态' : '转发动态',
-                  style: const TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
-              ),
-              Align(
-                alignment: Alignment.centerRight,
-                child: FilledButton.tonal(
+                const Spacer(),
+                TextButton(
                   onPressed: onPublishThrottle,
-                  style: FilledButton.styleFrom(
-                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  style: TextButton.styleFrom(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 20,
                       vertical: 10,
                     ),
                     visualDensity: VisualDensity.compact,
                   ),
-                  child: Text(widget.rid != null ? '发布' : '转发'),
+                  child: Text(widget.rid != null ? '立即发布' : '立即转发'),
                 ),
+                const SizedBox(width: 16),
+              ],
+            )
+          : Container(
+              height: 66,
+              padding: const EdgeInsets.all(16),
+              child: Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: SizedBox(
+                      width: 34,
+                      height: 34,
+                      child: IconButton(
+                        tooltip: '返回',
+                        style: ButtonStyle(
+                          padding: const WidgetStatePropertyAll(EdgeInsets.zero),
+                          backgroundColor: WidgetStatePropertyAll(
+                            theme.colorScheme.secondaryContainer,
+                          ),
+                        ),
+                        onPressed: Get.back,
+                        icon: Icon(
+                          Icons.arrow_back_outlined,
+                          size: 18,
+                          color: theme.colorScheme.onSecondaryContainer,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Center(
+                    child: Text(
+                      widget.rid != null ? '分享至动态' : '转发动态',
+                      style: const TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: FilledButton.tonal(
+                      onPressed: onPublishThrottle,
+                      style: FilledButton.styleFrom(
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 20,
+                          vertical: 10,
+                        ),
+                        visualDensity: VisualDensity.compact,
+                      ),
+                      child: Text(widget.rid != null ? '发布' : '转发'),
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
-        );
+            ),
+    ],
+  );
 
   Widget get _buildToolbar => Padding(
     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),

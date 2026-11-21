@@ -136,9 +136,17 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
         title: effectiveTitle,
         actions: actions,
         automaticallyImplyActions: automaticallyImplyActions,
-        flexibleSpace: IgnorePointer(
-          ignoring: isScrolledUnder,
-          child: DynamicFlexibleSpaceBar(background: flexibleSpace),
+        flexibleSpace: Stack(
+          children: [
+            // 折叠大标题栏自带图片 flexibleSpace 时，GlassAppBar 的默认
+            // 玻璃背景会被覆盖；把玻璃层垫在图片下面，收起时图片淡出、
+            // 玻璃浮现。调用方显式传了 backgroundColor 时不垫玻璃。
+            if (backgroundColor == null) const GlassAppBarBackground(),
+            IgnorePointer(
+              ignoring: isScrolledUnder,
+              child: DynamicFlexibleSpaceBar(background: flexibleSpace),
+            ),
+          ],
         ),
         bottom: bottom,
         elevation: isScrolledUnder ? elevation : 0.0,

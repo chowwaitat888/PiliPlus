@@ -124,20 +124,23 @@ class GlassAppBar extends AppBar {
     super.actionsPadding,
     super.animateColor,
   }) : super(
-         flexibleSpace: flexibleSpace ?? const _GlassAppBarBackground(),
+         flexibleSpace: flexibleSpace ?? const GlassAppBarBackground(),
          elevation: elevation ?? 0,
          scrolledUnderElevation: scrolledUnderElevation ?? 0,
          backgroundColor: backgroundColor ?? Colors.transparent,
        );
 }
 
-/// 玻璃质感的 [AppBar] 背景：滚动内容在顶栏下方经过时会被模糊。
+/// 玻璃质感的顶栏背景：滚动内容在顶栏下方经过时会被模糊。
 ///
-/// 默认不设置底色，玻璃层由 [_GlassAppBarBackground] 绘制；
+/// 默认不设置底色，玻璃层由 [GlassAppBarBackground] 绘制；
 /// 调用方显式传入 [AppBar.flexibleSpace] 或 [AppBar.backgroundColor] 时
 /// 以调用方为准。
-class _GlassAppBarBackground extends StatelessWidget {
-  const _GlassAppBarBackground();
+///
+/// 也可直接用作 [SliverAppBar.flexibleSpace]，或放在手写顶栏的
+/// [Stack] 底层（[Positioned.fill]），给没有标准 [AppBar] 的页面补玻璃。
+class GlassAppBarBackground extends StatelessWidget {
+  const GlassAppBarBackground({super.key});
 
   @override
   Widget build(BuildContext context) {

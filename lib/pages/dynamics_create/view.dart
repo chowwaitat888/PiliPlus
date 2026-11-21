@@ -7,6 +7,7 @@ import 'package:PiliPlus/common/widgets/custom_icon.dart';
 import 'package:PiliPlus/common/widgets/draggable_sheet/dyn.dart';
 import 'package:PiliPlus/common/widgets/flutter/text_field/controller.dart';
 import 'package:PiliPlus/common/widgets/flutter/text_field/text_field.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/widgets/pair.dart';
 import 'package:PiliPlus/common/widgets/scroll_physics.dart'
     show platformClampingPhysics;
@@ -319,59 +320,64 @@ class _CreateDynPanelState extends CommonRichTextPubPageState<CreateDynPanel> {
     ),
   );
 
-  Widget _buildAppBar() => Container(
-    height: 66,
-    padding: const EdgeInsets.all(16),
-    child: Stack(
-      clipBehavior: Clip.none,
-      children: [
-        Align(
-          alignment: Alignment.centerLeft,
-          child: SizedBox(
-            width: 34,
-            height: 34,
-            child: IconButton(
-              tooltip: '返回',
-              style: ButtonStyle(
-                padding: const WidgetStatePropertyAll(EdgeInsets.zero),
-                backgroundColor: WidgetStatePropertyAll(
-                  theme.colorScheme.secondaryContainer,
+  Widget _buildAppBar() => Stack(
+    children: [
+      const Positioned.fill(child: GlassAppBarBackground()),
+      Container(
+        height: 66,
+        padding: const EdgeInsets.all(16),
+        child: Stack(
+          clipBehavior: Clip.none,
+          children: [
+            Align(
+              alignment: Alignment.centerLeft,
+              child: SizedBox(
+                width: 34,
+                height: 34,
+                child: IconButton(
+                  tooltip: '返回',
+                  style: ButtonStyle(
+                    padding: const WidgetStatePropertyAll(EdgeInsets.zero),
+                    backgroundColor: WidgetStatePropertyAll(
+                      theme.colorScheme.secondaryContainer,
+                    ),
+                  ),
+                  onPressed: Get.back,
+                  icon: Icon(
+                    Icons.arrow_back_outlined,
+                    size: 18,
+                    color: theme.colorScheme.onSecondaryContainer,
+                  ),
                 ),
               ),
-              onPressed: Get.back,
-              icon: Icon(
-                Icons.arrow_back_outlined,
-                size: 18,
-                color: theme.colorScheme.onSecondaryContainer,
+            ),
+            Center(
+              child: Text(
+                _isEdit ? '编辑动态' : '发布动态',
+                style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
               ),
             ),
-          ),
-        ),
-        Center(
-          child: Text(
-            _isEdit ? '编辑动态' : '发布动态',
-            style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-          ),
-        ),
-        Align(
-          alignment: Alignment.centerRight,
-          child: Obx(
-            () => FilledButton.tonal(
-              onPressed: enablePublish.value ? onPublishThrottle : null,
-              style: FilledButton.styleFrom(
-                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 10,
+            Align(
+              alignment: Alignment.centerRight,
+              child: Obx(
+                () => FilledButton.tonal(
+                  onPressed: enablePublish.value ? onPublishThrottle : null,
+                  style: FilledButton.styleFrom(
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 10,
+                    ),
+                    visualDensity: VisualDensity.compact,
+                  ),
+                  child: Text(_publishTime.value == null ? '发布' : '定时发布'),
                 ),
-                visualDensity: VisualDensity.compact,
               ),
-              child: Text(_publishTime.value == null ? '发布' : '定时发布'),
             ),
-          ),
+          ],
         ),
-      ],
-    ),
+      ),
+    ],
   );
 
   Widget _buildPrivateWidget() {

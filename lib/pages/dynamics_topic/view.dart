@@ -3,6 +3,7 @@ import 'package:PiliPlus/common/widgets/custom_icon.dart';
 import 'package:PiliPlus/common/widgets/dynamic_sliver_app_bar/dynamic_sliver_app_bar.dart';
 import 'package:PiliPlus/common/widgets/flutter/refresh_indicator.dart';
 import 'package:PiliPlus/common/widgets/image/network_img_layer.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/widgets/loading_widget/http_error.dart';
 import 'package:PiliPlus/common/widgets/pair.dart';
 import 'package:PiliPlus/common/widgets/scaffold/simple_scaffold.dart';
@@ -175,7 +176,10 @@ class _DynTopicPageState extends State<DynTopicPage>
     LoadingState<TopDetails?> topState,
   ) {
     return switch (topState) {
-      Loading() => const SliverAppBar(),
+      Loading() => const SliverAppBar(
+        backgroundColor: Colors.transparent,
+        flexibleSpace: GlassAppBarBackground(),
+      ),
       Success(:final response) when response != null => DynamicSliverAppBar.medium(
         onPerformLayout: (value) => _controller.appbarOffset =
             value.height - kToolbarHeight - padding.top,
@@ -349,6 +353,8 @@ class _DynTopicPageState extends State<DynTopicPage>
       ),
       _ => SliverAppBar(
         pinned: true,
+        backgroundColor: Colors.transparent,
+        flexibleSpace: const GlassAppBarBackground(),
         title: Text(_controller.topicName),
       ),
     };
