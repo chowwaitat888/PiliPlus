@@ -1,4 +1,5 @@
 import 'package:PiliPlus/common/widgets/loading_widget/http_error.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/widgets/scaffold/simple_scaffold.dart';
 import 'package:PiliPlus/common/widgets/scroll_physics.dart';
 import 'package:PiliPlus/common/widgets/view_safe_area.dart';
@@ -82,7 +83,7 @@ class _SeasonSeriesPageState extends State<SeasonSeriesPage>
                           : item.meta!.seriesId;
                       Get.to(
                         SimpleScaffold(
-                          appBar: AppBar(title: Text(item.meta!.name!)),
+                          appBar: GlassAppBar(title: Text(item.meta!.name!)),
                           body: ViewSafeArea(
                             child: MemberVideo(
                               type: isSeason

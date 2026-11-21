@@ -1,4 +1,5 @@
 import 'package:PiliPlus/common/constants.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/dial_prefix.dart';
 import 'package:PiliPlus/common/widgets/loading_widget/http_error.dart';
 import 'package:PiliPlus/common/widgets/loading_widget/loading_widget.dart';
@@ -521,7 +522,7 @@ class _LoginPageState extends State<LoginPage> {
         const EdgeInsets.only(bottom: 25);
     final isLandscape = !MediaQuery.sizeOf(context).isPortrait;
     return SimpleScaffold(
-      appBar: AppBar(
+      appBar: GlassAppBar(
         leading: IconButton(
           tooltip: '关闭',
           icon: const Icon(Icons.close_outlined),

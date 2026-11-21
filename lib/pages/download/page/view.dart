@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:PiliPlus/common/widgets/appbar/appbar.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/widgets/dialog/dialog.dart';
 import 'package:PiliPlus/common/widgets/flutter/pop_scope.dart';
 import 'package:PiliPlus/common/widgets/loading_widget/http_error.dart';
@@ -152,7 +153,7 @@ class _DownloadPagePageState extends State<DownloadPagePage>
           appBar: MultiSelectAppBarWidget(
             ctr: this,
             actions: [updateBtn()],
-            child: AppBar(
+            child: GlassAppBar(
               title: Text(widget.seasonInfo.title),
               actions: [
                 IconButton(

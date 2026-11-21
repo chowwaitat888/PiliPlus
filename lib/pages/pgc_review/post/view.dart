@@ -1,4 +1,5 @@
 import 'package:PiliPlus/common/widgets/custom_icon.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/widgets/view_insets_safe_area.dart';
 import 'package:PiliPlus/http/pgc.dart';
 import 'package:PiliPlus/utils/accounts.dart';
@@ -61,7 +62,7 @@ class _PgcReviewPostPanelState extends State<PgcReviewPostPanel> {
       children: [
         SizedBox(
           height: 45,
-          child: AppBar(
+          child: GlassAppBar(
             backgroundColor: Colors.transparent,
             automaticallyImplyLeading: false,
             titleSpacing: 16,

@@ -1,4 +1,5 @@
 import 'package:PiliPlus/common/widgets/reorder_mixin.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/widgets/scaffold/simple_scaffold.dart';
 import 'package:PiliPlus/http/fav.dart';
 import 'package:PiliPlus/http/loading_state.dart';
@@ -48,7 +49,7 @@ class _FavSortPageState extends State<FavSortPage> with ReorderMixin {
   @override
   Widget build(BuildContext context) {
     return SimpleScaffold(
-      appBar: AppBar(
+      appBar: GlassAppBar(
         title: Text('排序: ${_favDetailController.folderInfo.value.title}'),
         actions: [
           TextButton(

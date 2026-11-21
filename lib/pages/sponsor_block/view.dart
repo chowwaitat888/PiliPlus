@@ -1,4 +1,5 @@
 import 'package:PiliPlus/common/widgets/pair.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/widgets/scaffold/simple_scaffold.dart';
 import 'package:PiliPlus/http/constants.dart';
 import 'package:PiliPlus/http/loading_state.dart';
@@ -481,7 +482,7 @@ class _SponsorBlockPageState extends State<SponsorBlockPage> {
     );
 
     return SimpleScaffold(
-      appBar: AppBar(title: const Text('空降助手')),
+      appBar: GlassAppBar(title: const Text('空降助手')),
       body: CustomScrollView(
         slivers: [
           dividerL,

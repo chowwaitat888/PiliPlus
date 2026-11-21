@@ -67,7 +67,8 @@ abstract final class ThemeUtils {
         titleSpacing: 0,
         centerTitle: false,
         scrolledUnderElevation: 0,
-        backgroundColor: colorScheme.surface,
+        // 玻璃顶栏：半透明底色，具体模糊由 GlassAppBar 的 flexibleSpace 提供。
+        backgroundColor: colorScheme.surface.withValues(alpha: 0.72),
         titleTextStyle: TextStyle(
           fontSize: 16,
           fontWeight: fontWeight,
@@ -77,6 +78,9 @@ abstract final class ThemeUtils {
       ),
       navigationBarTheme: NavigationBarThemeData(
         surfaceTintColor: isDark ? colorScheme.surfaceContainerHighest : null,
+        backgroundColor: colorScheme.surfaceContainer.withValues(
+          alpha: isDark ? 0.55 : 0.6,
+        ),
       ),
       snackBarTheme: SnackBarThemeData(
         elevation: 20,
@@ -91,12 +95,34 @@ abstract final class ThemeUtils {
       ),
       popupMenuTheme: PopupMenuThemeData(
         surfaceTintColor: isDark ? colorScheme.surfaceContainerHighest : null,
+        color: colorScheme.surfaceContainer.withValues(alpha: 0.85),
+        shape: RoundedRectangleBorder(
+          borderRadius: const BorderRadius.all(Radius.circular(16)),
+          side: BorderSide(
+            color: isDark
+                ? Colors.white.withValues(alpha: 0.1)
+                : Colors.black.withValues(alpha: 0.06),
+          ),
+        ),
       ),
       cardTheme: CardThemeData(
         elevation: 1,
         margin: EdgeInsets.zero,
         shadowColor: Colors.transparent,
         surfaceTintColor: isDark ? colorScheme.onSurfaceVariant : null,
+        // 玻璃卡片：半透明底色 + 大圆角 + 细边框（模糊不由主题提供，
+        // 卡片多位于纯色背景上，半透明 + 高光即可呈现玻璃感）。
+        color: colorScheme.surfaceContainer.withValues(
+          alpha: isDark ? 0.55 : 0.6,
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: const BorderRadius.all(Radius.circular(20)),
+          side: BorderSide(
+            color: isDark
+                ? Colors.white.withValues(alpha: 0.1)
+                : Colors.black.withValues(alpha: 0.06),
+          ),
+        ),
       ),
       progressIndicatorTheme: isDark
           ? ProgressIndicatorThemeData(
@@ -113,11 +139,23 @@ abstract final class ThemeUtils {
           fontFamily: fontFamily,
           color: colorScheme.onSurface,
         ),
-        backgroundColor: colorScheme.surface,
+        backgroundColor: colorScheme.surface.withValues(
+          alpha: isDark ? 0.68 : 0.75,
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: const BorderRadius.all(Radius.circular(28)),
+          side: BorderSide(
+            color: isDark
+                ? Colors.white.withValues(alpha: 0.12)
+                : Colors.black.withValues(alpha: 0.06),
+          ),
+        ),
         constraints: const BoxConstraints(minWidth: 280, maxWidth: 420),
       ),
       bottomSheetTheme: BottomSheetThemeData(
-        backgroundColor: colorScheme.surface,
+        backgroundColor: colorScheme.surface.withValues(
+          alpha: isDark ? 0.78 : 0.82,
+        ),
         shape: const RoundedRectangleBorder(
           borderRadius: Style.bottomSheetRadius,
         ),
@@ -181,22 +219,28 @@ abstract final class ThemeUtils {
         backgroundColor: Colors.black,
       ),
       cardTheme: theme.cardTheme.copyWith(
-        color: colorScheme.surfaceContainer.darken(0.75),
+        color: colorScheme.surfaceContainer.darken(0.75).withValues(
+          alpha: 0.6,
+        ),
       ),
-      dialogTheme: theme.dialogTheme.copyWith(backgroundColor: color),
+      dialogTheme: theme.dialogTheme.copyWith(
+        backgroundColor: color.withValues(alpha: 0.72),
+      ),
       bottomSheetTheme: theme.bottomSheetTheme.copyWith(
-        backgroundColor: color,
+        backgroundColor: color.withValues(alpha: 0.8),
       ),
       bottomNavigationBarTheme: theme.bottomNavigationBarTheme.copyWith(
-        backgroundColor: color,
+        backgroundColor: color.withValues(alpha: 0.65),
       ),
       navigationBarTheme: theme.navigationBarTheme.copyWith(
-        backgroundColor: color,
+        backgroundColor: color.withValues(alpha: 0.65),
       ),
       navigationRailTheme: theme.navigationRailTheme.copyWith(
         backgroundColor: Colors.black,
       ),
-      popupMenuTheme: theme.popupMenuTheme.copyWith(color: color),
+      popupMenuTheme: theme.popupMenuTheme.copyWith(
+        color: color.withValues(alpha: 0.85),
+      ),
       colorScheme: colorScheme.copyWith(
         primary: colorScheme.primary.darken(0.1),
         onPrimary: colorScheme.onPrimary.darken(0.1),

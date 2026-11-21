@@ -1,4 +1,5 @@
 import 'package:PiliPlus/common/widgets/loading_widget/http_error.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/widgets/loading_widget/loading_widget.dart';
 import 'package:PiliPlus/common/widgets/scaffold/simple_scaffold.dart';
 import 'package:PiliPlus/http/loading_state.dart';
@@ -21,7 +22,7 @@ class _LogPageState<T> extends State<LogPage<T>> {
   Widget build(BuildContext context) {
     final padding = MediaQuery.viewPaddingOf(context);
     return SimpleScaffold(
-      appBar: AppBar(title: Text(_controller.title)),
+      appBar: GlassAppBar(title: Text(_controller.title)),
       body: CustomScrollView(
         slivers: [
           SliverPadding(

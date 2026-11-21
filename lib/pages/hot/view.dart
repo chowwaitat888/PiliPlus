@@ -1,4 +1,5 @@
 import 'package:PiliPlus/common/widgets/flutter/refresh_indicator.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/widgets/image/network_img_layer.dart';
 import 'package:PiliPlus/common/widgets/loading_widget/http_error.dart';
 import 'package:PiliPlus/common/widgets/scaffold/simple_scaffold.dart';
@@ -86,7 +87,7 @@ class _HotPageState extends State<HotPage>
                           } else {
                             Get.to(
                               SimpleScaffold(
-                                appBar: AppBar(title: const Text('排行榜')),
+                                appBar: GlassAppBar(title: const Text('排行榜')),
                                 body: const ViewSafeArea(child: RankPage()),
                               ),
                             );

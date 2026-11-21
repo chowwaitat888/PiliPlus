@@ -1,4 +1,5 @@
 import 'package:PiliPlus/common/widgets/flutter/list_tile.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/widgets/flutter/refresh_indicator.dart';
 import 'package:PiliPlus/common/widgets/keep_alive_wrapper.dart';
 import 'package:PiliPlus/common/widgets/loading_widget/http_error.dart';
@@ -130,7 +131,7 @@ class _BubblePageState extends State<BubblePage>
       );
     }
     return SimpleScaffold(
-      appBar: AppBar(
+      appBar: GlassAppBar(
         title: Obx(() {
           final tribeName = _controller.tribeName.value;
           if (tribeName == null) {

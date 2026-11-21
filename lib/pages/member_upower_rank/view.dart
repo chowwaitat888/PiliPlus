@@ -1,4 +1,5 @@
 import 'package:PiliPlus/common/widgets/flutter/list_tile.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/widgets/flutter/refresh_indicator.dart';
 import 'package:PiliPlus/common/widgets/image/network_img_layer.dart';
 import 'package:PiliPlus/common/widgets/keep_alive_wrapper.dart';
@@ -88,7 +89,7 @@ class _UpowerRankPageState extends State<UpowerRankPage>
     );
     if (widget.privilegeType == null) {
       return SimpleScaffold(
-        appBar: AppBar(
+        appBar: GlassAppBar(
           title: Text('$_name的充电排行榜${_count == null ? '' : '($_count)'}'),
           actions: [
             TextButton(

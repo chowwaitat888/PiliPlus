@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io' show File;
 
 import 'package:PiliPlus/common/assets.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/widgets/dialog/report.dart';
 import 'package:PiliPlus/common/widgets/flutter/chat_list_view.dart';
 import 'package:PiliPlus/common/widgets/flutter/text_field/text_field.dart';
@@ -60,7 +61,7 @@ class _WhisperDetailPageState
       1,
     );
     return SimpleScaffold(
-      appBar: AppBar(
+      appBar: GlassAppBar(
         title: GestureDetector(
           behavior: HitTestBehavior.opaque,
           onTap: () {

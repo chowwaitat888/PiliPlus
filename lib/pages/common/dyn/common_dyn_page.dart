@@ -1,4 +1,5 @@
 import 'package:PiliPlus/common/skeleton/video_reply.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/sliver_single_child_delegate.dart';
 import 'package:PiliPlus/common/style.dart';
 import 'package:PiliPlus/common/widgets/custom_icon.dart';
@@ -292,7 +293,7 @@ mixin CommonDynPageMixin<T extends StatefulWidget>
       );
       if (showBackBtn) {
         return SimpleScaffold(
-          appBar: AppBar(
+          appBar: GlassAppBar(
             title: const Text('评论详情'),
             shape: Border(
               bottom: BorderSide(

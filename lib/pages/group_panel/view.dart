@@ -1,4 +1,5 @@
 import 'package:PiliPlus/common/widgets/loading_widget/loading_widget.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/http/loading_state.dart';
 import 'package:PiliPlus/http/member.dart';
 import 'package:PiliPlus/models/member/tags.dart';
@@ -129,7 +130,7 @@ class _GroupPanelState extends State<GroupPanel> {
     return Column(
       crossAxisAlignment: .end,
       children: [
-        AppBar(
+        GlassAppBar(
           backgroundColor: Colors.transparent,
           leading: IconButton(
             tooltip: '关闭',

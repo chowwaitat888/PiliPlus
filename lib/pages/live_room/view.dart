@@ -3,6 +3,7 @@ import 'dart:math';
 import 'dart:ui';
 
 import 'package:PiliPlus/common/assets.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/style.dart';
 import 'package:PiliPlus/common/widgets/button/icon_button.dart';
 import 'package:PiliPlus/common/widgets/custom_icon.dart';
@@ -582,7 +583,7 @@ class _LiveRoomPageState extends State<LiveRoomPage>
   }
 
   PreferredSizeWidget _buildAppBar(bool isFullScreen) {
-    return AppBar(
+    return GlassAppBar(
       primary: !plPlayerController.removeSafeArea,
       toolbarHeight: isFullScreen ? 0 : null,
       backgroundColor: Colors.transparent,

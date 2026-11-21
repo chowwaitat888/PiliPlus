@@ -3,6 +3,7 @@ import 'dart:io' show Platform;
 
 import 'package:PiliPlus/common/widgets/route_aware_mixin.dart'
     show routeObserver;
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/widgets/selection_text.dart';
 import 'package:PiliPlus/http/browser_ua.dart';
 import 'package:PiliPlus/main.dart' show webViewEnvironment;
@@ -255,7 +256,7 @@ document.addEventListener('click', function(e) {
     return Scaffold(
       appBar: widget.url != null
           ? null
-          : AppBar(
+          : GlassAppBar(
               title: Obx(
                 () => Text(
                   _title.value.isNotEmpty ? _title.value : _currentUrl,
@@ -343,7 +344,7 @@ document.addEventListener('click', function(e) {
     return Scaffold(
       appBar: widget.url != null
           ? null
-          : AppBar(
+          : GlassAppBar(
               title: Obx(
                 () => Text(
                   _title.value.isNotEmpty ? _title.value : _currentUrl,

@@ -1,6 +1,7 @@
 import 'dart:io' show File;
 
 import 'package:PiliPlus/common/widgets/button/icon_button.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/widgets/image/network_img_layer.dart';
 import 'package:PiliPlus/common/widgets/scaffold/simple_scaffold.dart';
 import 'package:PiliPlus/common/widgets/time_picker.dart';
@@ -55,7 +56,7 @@ class _CreateVotePageState extends State<CreateVotePage> {
       color: theme.colorScheme.outline.withValues(alpha: 0.1),
     );
     return SimpleScaffold(
-      appBar: AppBar(
+      appBar: GlassAppBar(
         title: Text('${_controller.voteId != null ? '' : '发起'}投票'),
       ),
       body: ListView(

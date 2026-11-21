@@ -1,4 +1,5 @@
 import 'package:PiliPlus/common/widgets/dialog/dialog.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/widgets/keep_alive_wrapper.dart';
 import 'package:PiliPlus/common/widgets/loading_widget/loading_widget.dart';
 import 'package:PiliPlus/common/widgets/scaffold/simple_scaffold.dart';
@@ -51,7 +52,7 @@ class _LiveDmBlockPageState extends State<LiveDmBlockPage> {
     );
 
     return SimpleScaffold(
-      appBar: AppBar(title: const Text('弹幕屏蔽')),
+      appBar: GlassAppBar(title: const Text('弹幕屏蔽')),
       body: Padding(
         padding: .only(left: padding.left, right: padding.right),
         child: Column(

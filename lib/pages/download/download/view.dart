@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:PiliPlus/common/widgets/appbar/appbar.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/widgets/flutter/pop_scope.dart';
 import 'package:PiliPlus/common/widgets/loading_widget/http_error.dart';
 import 'package:PiliPlus/common/widgets/scaffold/simple_scaffold.dart';
@@ -141,7 +142,7 @@ class _DownloadPageState extends State<DownloadPage>
           appBar: MultiSelectAppBarWidget(
             ctr: _controller,
             actions: [updateBtn()],
-            child: AppBar(
+            child: GlassAppBar(
               title: const Text('离线缓存'),
               actions: [
                 IconButton(

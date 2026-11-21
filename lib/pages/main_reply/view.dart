@@ -1,4 +1,5 @@
 import 'package:PiliPlus/common/skeleton/video_reply.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/sliver_single_child_delegate.dart';
 import 'package:PiliPlus/common/style.dart';
 import 'package:PiliPlus/common/widgets/flutter/refresh_indicator.dart';
@@ -66,7 +67,7 @@ class _MainReplyPageState extends State<MainReplyPage>
   @override
   Widget build(BuildContext context) {
     return SimpleScaffold(
-      appBar: AppBar(title: const Text('查看评论')),
+      appBar: GlassAppBar(title: const Text('查看评论')),
       body: fabAnimWrapper(
         child: refreshIndicator(
           onRefresh: controller.onRefresh,
@@ -201,7 +202,7 @@ class _MainReplyPageState extends State<MainReplyPage>
   void replyReply(ReplyInfo replyItem, int? id) {
     Get.to(
       SimpleScaffold(
-        appBar: AppBar(
+        appBar: GlassAppBar(
           title: const Text('评论详情'),
           shape: Border(
             bottom: BorderSide(

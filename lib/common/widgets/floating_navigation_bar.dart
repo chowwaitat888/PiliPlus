@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/utils/extension/theme_ext.dart';
 import 'package:material_ui/material_ui.dart';
 
@@ -84,22 +85,20 @@ class FloatingNavigationBar extends StatelessWidget {
       child: SizedBox(
         height: _kNavigationHeight,
         width: destinations.length * _kIndicatorWidth,
-        child: DecoratedBox(
-          decoration: ShapeDecoration(
-            color: ElevationOverlay.applySurfaceTint(
-              backgroundColor ??
-                  navigationBarTheme.backgroundColor ??
-                  defaults.backgroundColor!,
-              surfaceTintColor ??
-                  navigationBarTheme.surfaceTintColor ??
-                  defaults.surfaceTintColor,
-              elevation ?? navigationBarTheme.elevation ?? defaults.elevation!,
+        // Liquid Glass 悬浮底栏：模糊 + 半透明 + 高光，浮在内容之上。
+        child: LiquidGlass(
+          borderRadius: _kBorderRadius,
+          blurSigma: 24,
+          showBorder: false,
+          child: DecoratedBox(
+            decoration: ShapeDecoration(
+              shape: RoundedSuperellipseBorder(
+                side: Theme.of(context).colorScheme.isDark
+                    ? const BorderSide(color: Color(0x29FFFFFF))
+                    : const BorderSide(color: Color(0x14000000)),
+                borderRadius: _kBorderRadius,
+              ),
             ),
-            shape: RoundedSuperellipseBorder(
-              side: defaults.borderSide,
-              borderRadius: _kBorderRadius,
-            ),
-          ),
           child: Padding(
             padding: _kIndicatorPadding,
             child: Row(
@@ -131,6 +130,7 @@ class FloatingNavigationBar extends StatelessWidget {
               ],
             ),
           ),
+        ),
         ),
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:PiliPlus/common/widgets/loading_widget/loading_widget.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/http/loading_state.dart';
 import 'package:PiliPlus/models_new/fav/fav_folder/list.dart';
 import 'package:PiliPlus/pages/common/common_intro_controller.dart';
@@ -137,7 +138,7 @@ class _FavPanelState extends State<FavPanel> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        AppBar(
+        GlassAppBar(
           backgroundColor: Colors.transparent,
           leading: IconButton(
             tooltip: '关闭',

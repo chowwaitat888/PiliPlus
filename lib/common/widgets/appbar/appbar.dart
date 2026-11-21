@@ -1,4 +1,5 @@
 import 'package:PiliPlus/pages/common/multi_select/base.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:get/get.dart';
 import 'package:material_ui/material_ui.dart';
 
@@ -22,7 +23,7 @@ class MultiSelectAppBarWidget extends StatelessWidget
     if (visible ?? ctr.enableMultiSelect.value) {
       final style = TextButton.styleFrom(visualDensity: VisualDensity.compact);
       final colorScheme = ColorScheme.of(context);
-      return AppBar(
+      return GlassAppBar(
         bottom: child.bottom,
         leading: IconButton(
           tooltip: '取消',

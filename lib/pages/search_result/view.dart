@@ -1,4 +1,5 @@
 import 'package:PiliPlus/common/widgets/scaffold/simple_scaffold.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/widgets/scroll_physics.dart' show tabBarView;
 import 'package:PiliPlus/common/widgets/view_safe_area.dart';
 import 'package:PiliPlus/models/common/search/search_type.dart';
@@ -68,7 +69,7 @@ class _SearchResultPageState extends State<SearchResultPage>
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return SimpleScaffold(
-      appBar: AppBar(
+      appBar: GlassAppBar(
         shape: Border(
           bottom: BorderSide(
             color: theme.dividerColor.withValues(alpha: 0.08),

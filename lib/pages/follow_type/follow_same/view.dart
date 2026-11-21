@@ -1,4 +1,5 @@
 import 'package:PiliPlus/pages/follow_type/follow_same/controller.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/pages/follow_type/view.dart';
 import 'package:PiliPlus/utils/extension/get_ext.dart';
 import 'package:PiliPlus/utils/parse_int.dart';
@@ -32,7 +33,7 @@ class _FollowSamePageState extends FollowTypePageState<FollowSamePage> {
   );
 
   @override
-  PreferredSizeWidget get appBar => AppBar(
+  PreferredSizeWidget get appBar => GlassAppBar(
     title: Obx(
       () {
         final name = controller.name.value;

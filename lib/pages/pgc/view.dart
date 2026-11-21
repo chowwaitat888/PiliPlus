@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:PiliPlus/common/style.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/widgets/button/more_btn.dart';
 import 'package:PiliPlus/common/widgets/flutter/refresh_indicator.dart';
 import 'package:PiliPlus/common/widgets/loading_widget/http_error.dart';
@@ -250,7 +251,7 @@ class _PgcPageState extends State<PgcPage> with AutomaticKeepAliveClientMixin {
                 List<int> types = const [102, 2, 5, 3, 7];
                 Get.to(
                   SimpleScaffold(
-                    appBar: AppBar(title: const Text('索引')),
+                    appBar: GlassAppBar(title: const Text('索引')),
                     body: DefaultTabController(
                       length: types.length,
                       child: Builder(

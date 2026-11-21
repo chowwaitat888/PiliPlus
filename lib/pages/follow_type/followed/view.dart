@@ -1,4 +1,5 @@
 import 'package:PiliPlus/pages/follow_type/followed/controller.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/pages/follow_type/view.dart';
 import 'package:PiliPlus/utils/extension/get_ext.dart';
 import 'package:PiliPlus/utils/parse_int.dart';
@@ -32,7 +33,7 @@ class _FollowedPageState extends FollowTypePageState<FollowedPage> {
   );
 
   @override
-  PreferredSizeWidget get appBar => AppBar(
+  PreferredSizeWidget get appBar => GlassAppBar(
     title: Obx(
       () => Text(
         '我关注的${controller.total.value}人也关注了${controller.name.value ?? 'TA'}',

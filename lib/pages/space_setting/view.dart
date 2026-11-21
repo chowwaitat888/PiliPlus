@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:PiliPlus/common/widgets/loading_widget/loading_widget.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/widgets/scaffold/simple_scaffold.dart';
 import 'package:PiliPlus/http/loading_state.dart';
 import 'package:PiliPlus/models_new/space_setting/privacy.dart';
@@ -22,7 +23,7 @@ class _SpaceSettingPageState extends State<SpaceSettingPage> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return SimpleScaffold(
-      appBar: AppBar(title: const Text('空间设置')),
+      appBar: GlassAppBar(title: const Text('空间设置')),
       body: Obx(() => _buildBody(theme, _controller.loadingState.value)),
     );
   }

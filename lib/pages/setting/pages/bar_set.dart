@@ -1,4 +1,5 @@
 import 'package:PiliPlus/common/widgets/pair.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/widgets/reorder_mixin.dart';
 import 'package:PiliPlus/common/widgets/scaffold/simple_scaffold.dart';
 import 'package:PiliPlus/models/common/enum_with_label.dart';
@@ -69,7 +70,7 @@ class _BarSetPageState extends State<BarSetPage> with ReorderMixin {
   @override
   Widget build(BuildContext context) {
     return SimpleScaffold(
-      appBar: AppBar(
+      appBar: GlassAppBar(
         title: Text('$title编辑'),
         actions: [
           TextButton(onPressed: onReset, child: const Text('重置')),

@@ -1,4 +1,5 @@
 import 'package:PiliPlus/common/skeleton/video_reply.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/sliver_single_child_delegate.dart';
 import 'package:PiliPlus/common/style.dart';
 import 'package:PiliPlus/common/widgets/flutter/refresh_indicator.dart';
@@ -66,7 +67,7 @@ class VideoReplyReplyPanel extends CommonSlidePage {
         'enterUri': ?uri?.toString(), // save panel
       },
       () => SimpleScaffold(
-        appBar: AppBar(
+        appBar: GlassAppBar(
           title: const Text('评论详情'),
           actions: [
             IconButton(

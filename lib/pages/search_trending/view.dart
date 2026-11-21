@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:PiliPlus/common/assets.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/widgets/flutter/list_tile.dart';
 import 'package:PiliPlus/common/widgets/flutter/refresh_indicator.dart';
 import 'package:PiliPlus/common/widgets/loading_widget/http_error.dart';
@@ -88,7 +89,7 @@ class _SearchTrendingPageState extends State<SearchTrendingPage> {
               () {
                 final scrollRatio = _scrollRatio.value;
                 final flag = maxWidth > width || scrollRatio >= 0.5;
-                return AppBar(
+                return GlassAppBar(
                   title: Opacity(
                     opacity: scrollRatio,
                     child: Text(

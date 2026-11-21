@@ -1,4 +1,5 @@
 import 'package:PiliPlus/common/widgets/button/icon_button.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/widgets/image/network_img_layer.dart';
 import 'package:PiliPlus/common/widgets/scaffold/simple_scaffold.dart';
 import 'package:PiliPlus/common/widgets/scroll_physics.dart' show tabBarView;
@@ -45,7 +46,7 @@ class _LiveAreaDetailPageState extends State<LiveAreaDetailPage> {
     final ThemeData theme = Theme.of(context);
     final padding = MediaQuery.viewPaddingOf(context);
     return SimpleScaffold(
-      appBar: AppBar(
+      appBar: GlassAppBar(
         title: Text(widget.parentName),
         actions: [
           IconButton(
@@ -203,7 +204,7 @@ class _LiveAreaDetailPageState extends State<LiveAreaDetailPage> {
           builder: (_, scrollController) {
             return Column(
               children: [
-                AppBar(
+                GlassAppBar(
                   centerTitle: true,
                   backgroundColor: Colors.transparent,
                   automaticallyImplyLeading: false,

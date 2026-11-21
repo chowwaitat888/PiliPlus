@@ -3,6 +3,7 @@
 import 'dart:async' show StreamSubscription;
 
 import 'package:PiliPlus/common/widgets/scaffold/simple_scaffold.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/widgets/view_safe_area.dart';
 import 'package:PiliPlus/grpc/bilibili/app/listener/v1.pbenum.dart'
     show PlaylistSource;
@@ -390,7 +391,7 @@ abstract final class PiliScheme {
           case 'livearea':
             Get.to(
               SimpleScaffold(
-                appBar: AppBar(title: const Text('直播')),
+                appBar: GlassAppBar(title: const Text('直播')),
                 body: const ViewSafeArea(child: LivePage()),
               ),
             );
@@ -398,7 +399,7 @@ abstract final class PiliScheme {
           case 'rank':
             Get.to(
               SimpleScaffold(
-                appBar: AppBar(title: const Text('排行榜')),
+                appBar: GlassAppBar(title: const Text('排行榜')),
                 body: const ViewSafeArea(child: RankPage()),
               ),
             );

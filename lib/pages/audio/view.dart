@@ -1,6 +1,7 @@
 import 'dart:math' show min;
 
 import 'package:PiliPlus/common/assets.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/style.dart';
 import 'package:PiliPlus/common/widgets/button/icon_button.dart';
 import 'package:PiliPlus/common/widgets/flutter/refresh_indicator.dart';
@@ -98,7 +99,7 @@ class _AudioPageState extends State<AudioPage> {
     final isPortrait = MediaQuery.sizeOf(context).isPortrait;
     final padding = MediaQuery.viewPaddingOf(context);
     return SimpleScaffold(
-      appBar: AppBar(
+      appBar: GlassAppBar(
         actions: [
           if (_controller.isUgc && _controller.enableSponsorBlock)
             Obx(() {

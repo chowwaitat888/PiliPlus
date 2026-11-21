@@ -1,6 +1,7 @@
 import 'package:PiliPlus/common/style.dart';
 import 'package:PiliPlus/common/widgets/custom_height_widget.dart';
 import 'package:PiliPlus/common/widgets/image/network_img_layer.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/widgets/scroll_physics.dart' show tabBarView;
 import 'package:PiliPlus/pages/common/common_page.dart';
 import 'package:PiliPlus/pages/home/controller.dart';
@@ -149,10 +150,15 @@ class _HomePageState extends CommonPageState<HomePage>
     return Expanded(
       child: SizedBox(
         height: 44,
-        child: Material(
+        // Liquid Glass 搜索框：毛玻璃药丸。
+        child: LiquidGlass(
           borderRadius: borderRadius,
-          color: _colorScheme.onSecondaryContainer.withValues(alpha: 0.05),
-          child: InkWell(
+          blurSigma: 16,
+          tintAlpha: 0.55,
+          child: Material(
+            borderRadius: borderRadius,
+            color: Colors.transparent,
+            child: InkWell(
             borderRadius: borderRadius,
             splashColor: _colorScheme.primaryContainer.withValues(
               alpha: 0.3,
@@ -185,6 +191,7 @@ class _HomePageState extends CommonPageState<HomePage>
                 const SizedBox(width: 5),
               ],
             ),
+          ),
           ),
         ),
       ),

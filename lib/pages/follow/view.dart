@@ -1,4 +1,5 @@
 import 'package:PiliPlus/common/widgets/dialog/dialog.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/widgets/dialog/simple_dialog_option.dart';
 import 'package:PiliPlus/common/widgets/loading_widget/loading_widget.dart';
 import 'package:PiliPlus/common/widgets/scaffold/simple_scaffold.dart';
@@ -88,7 +89,7 @@ class _FollowPageState extends State<FollowPage>
     );
   }
 
-  PreferredSizeWidget get _buildAppBar => AppBar(
+  PreferredSizeWidget get _buildAppBar => GlassAppBar(
     title: _followController.isOwner
         ? const Text('我的关注')
         : Obx(() {

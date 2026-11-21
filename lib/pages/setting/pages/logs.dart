@@ -2,6 +2,7 @@ import 'dart:async' show Timer;
 import 'dart:convert' show jsonDecode;
 
 import 'package:PiliPlus/common/constants.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/widgets/button/icon_button.dart';
 import 'package:PiliPlus/common/widgets/loading_widget/loading_widget.dart';
 import 'package:PiliPlus/common/widgets/selection_text.dart';
@@ -107,7 +108,7 @@ class _LogsPageState extends State<LogsPage> {
   Widget build(BuildContext context) {
     final padding = MediaQuery.viewPaddingOf(context);
     return Scaffold(
-      appBar: AppBar(
+      appBar: GlassAppBar(
         title: const Text('日志'),
         actions: [
           PopupMenuButton(

@@ -1,4 +1,5 @@
 import 'package:PiliPlus/common/widgets/flutter/refresh_indicator.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/widgets/loading_widget/http_error.dart';
 import 'package:PiliPlus/common/widgets/scaffold/simple_scaffold.dart';
 import 'package:PiliPlus/common/widgets/view_sliver_safe_area.dart';
@@ -23,7 +24,7 @@ class _SubPageState extends State<SubPage> with GridMixin {
   @override
   Widget build(BuildContext context) {
     return SimpleScaffold(
-      appBar: AppBar(title: const Text('我的订阅')),
+      appBar: GlassAppBar(title: const Text('我的订阅')),
       body: refreshIndicator(
         onRefresh: _subController.onRefresh,
         child: CustomScrollView(

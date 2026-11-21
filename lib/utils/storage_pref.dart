@@ -1068,7 +1068,9 @@ abstract final class Pref {
       _setting.get(SettingBoxKey.saveReply, defaultValue: true);
 
   static bool get floatingNavBar =>
-      _setting.get(SettingBoxKey.floatingNavBar, defaultValue: false);
+      // 玻璃版默认开启悬浮底栏：Liquid Glass 风格的悬浮导航是核心外观，
+      // 可在设置里关掉换回普通底栏。
+      _setting.get(SettingBoxKey.floatingNavBar, defaultValue: true);
 
   static bool get removeSafeArea =>
       _setting.get(SettingBoxKey.removeSafeArea, defaultValue: false);

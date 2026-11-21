@@ -1,4 +1,5 @@
 import 'package:PiliPlus/common/widgets/appbar/appbar.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/widgets/flutter/pop_scope.dart';
 import 'package:PiliPlus/common/widgets/loading_widget/http_error.dart';
 import 'package:PiliPlus/common/widgets/scaffold/simple_scaffold.dart';
@@ -55,7 +56,7 @@ abstract class CommonSearchPageState<S extends StatefulWidget, R, T>
   }
 
   PreferredSizeWidget _buildBar(bool multiSelect) {
-    final AppBar bar = AppBar(
+    final AppBar bar = GlassAppBar(
       actions: [
         IconButton(
           tooltip: '搜索',

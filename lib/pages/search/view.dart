@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:PiliPlus/common/widgets/dialog/export_import.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/widgets/disabled_icon.dart';
 import 'package:PiliPlus/common/widgets/loading_widget/http_error.dart';
 import 'package:PiliPlus/common/widgets/scaffold/simple_scaffold.dart';
@@ -85,7 +86,7 @@ class _SearchPageState extends State<SearchPage> {
     );
   }
 
-  PreferredSizeWidget get _buildAppBar => AppBar(
+  PreferredSizeWidget get _buildAppBar => GlassAppBar(
     shape: Border(
       bottom: BorderSide(
         color: theme.dividerColor.withValues(alpha: 0.08),

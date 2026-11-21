@@ -1,4 +1,5 @@
 import 'package:PiliPlus/common/widgets/flutter/refresh_indicator.dart';
+import 'package:PiliPlus/common/widgets/liquid_glass.dart';
 import 'package:PiliPlus/common/widgets/scaffold/simple_scaffold.dart';
 import 'package:PiliPlus/common/widgets/view_safe_area.dart';
 import 'package:PiliPlus/grpc/bilibili/main/community/reply/v1.pb.dart'
@@ -35,7 +36,7 @@ class _MatchInfoPageState extends CommonDynPageState<MatchInfoPage> {
   Widget build(BuildContext context) {
     return fabAnimWrapper(
       child: SimpleScaffold(
-        appBar: AppBar(title: const Text('比赛详情')),
+        appBar: GlassAppBar(title: const Text('比赛详情')),
         body: ViewSafeArea(
           child: refreshIndicator(
             onRefresh: controller.onRefresh,
@@ -77,7 +78,7 @@ class _MatchInfoPageState extends CommonDynPageState<MatchInfoPage> {
   void replyReply(BuildContext context, ReplyInfo replyItem, int? id) {
     Get.to(
       SimpleScaffold(
-        appBar: AppBar(
+        appBar: GlassAppBar(
           title: const Text('评论详情'),
           shape: Border(
             bottom: BorderSide(
